@@ -22,8 +22,6 @@ async def main() -> None:
         reload=constants.Client.reload,
     )
 
-    bot.i18n.load("src/lang/")  # type: ignore[reportUnknownMemberType]
-
     try:
         bot.load_extensions("src/exts")
     except Exception:
