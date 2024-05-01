@@ -5,11 +5,8 @@ import os
 
 import disnake
 from disnake.ext import commands, tasks
-from helply import Helply
 
 from src import constants, log
-from src.util.http import APIHTTPClient
-from src.util.localize import Localization
 
 logger = log.get_logger(__name__)
 
@@ -50,12 +47,7 @@ class Bot(commands.AutoShardedInteractionBot):
             test_guilds=test_guilds,
         )
 
-        self.helply = Helply(self)
-
         self.start_time: dt.datetime = dt.datetime.now(tz=dt.timezone.utc)
-        self.localization = Localization(self.i18n)
-
-        self.http_client: APIHTTPClient = APIHTTPClient()
 
     async def on_connect(self) -> None:
         """Execute when bot is connected to the Discord API."""
