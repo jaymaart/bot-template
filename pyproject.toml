@@ -1,11 +1,10 @@
 [tool.poetry]
-name = "bot-template"
-version = "0.1.0"
-description = "A basic template for a discord bot with disnake."
-authors = ["OseSem"]
+name = "void-studios-bot"
+version = "1.0.0"
+description = "A basic discord bot with disnake."
+authors = ["Jaymart"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/OseSem/bot-template"
 
 package-mode = false
 
@@ -19,6 +18,7 @@ helply = {git = "https://github.com/dlchamp/helply", rev = "a99f90f"}
 tabulate = "^0.9.0"
 humanfriendly = "^10.0"
 yarl = "^1.9.4"
+tortoise-orm = "^0.21.6"
 
 [tool.poetry.group.dev.dependencies]
 python-dotenv = "^1.0.0"
@@ -30,6 +30,7 @@ pre-commit = "^3.7.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
 
 
 

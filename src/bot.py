@@ -5,8 +5,10 @@ import os
 
 import disnake
 from disnake.ext import commands, tasks
+from tortoise import Tortoise  # Import Tortoise ORM
 
 from src import constants, log
+from src.util.queue_manager import QueueManager
 
 logger = log.get_logger(__name__)
 
@@ -48,6 +50,15 @@ class Bot(commands.AutoShardedInteractionBot):
         )
 
         self.start_time: dt.datetime = dt.datetime.now(tz=dt.timezone.utc)
+        self.queue_manager = QueueManager(self)
+
+    async def init_db(self):
+        """Initialize the database connection."""
+        await Tortoise.init(
+            db_url='sqlite://db.sqlite3',
+            modules={'models': ['src.db.models']}
+        )
+        await Tortoise.generate_schemas()
 
     async def on_connect(self) -> None:
         """Execute when bot is connected to the Discord API."""

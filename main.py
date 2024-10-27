@@ -24,6 +24,7 @@ async def main() -> None:
 
     try:
         bot.load_extensions("src/exts")
+        await bot.init_db()
     except Exception:
         await bot.close()
         raise

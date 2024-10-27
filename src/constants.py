@@ -77,7 +77,6 @@ class Client:
         speak=True,
     )
 
-
 class Color:
     """Colors used in various embeds."""
 
