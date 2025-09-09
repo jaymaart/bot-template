@@ -47,7 +47,8 @@ async def main() -> None:
 
     except (asyncio.CancelledError, KeyboardInterrupt):
         logger.warning("Kill command received. Bot is closed.")
-        await bot.close()
+        if not bot.is_closed():
+            await bot.close()
     except disnake.errors.PrivilegedIntentsRequired:
         msg = f"""Missing Privileged Intents.
         Fix this by adding the required privileged intents for your bot inside of:

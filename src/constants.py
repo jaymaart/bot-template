@@ -104,23 +104,6 @@ class Emoji:
     trashcan: str = "🗑️"
 
 
-class Reviews:
-    """Review system configuration."""
-
-    # Category IDs where tickets are created (add your ticket category IDs here)
-    ticket_categories: tuple[int, ...] = (
-        # Example: Add your ticket category IDs
-        # 123456789012345678,
-        # 987654321098765432,
-        1413644462944686081,
-        1413644883641766040,
-        1413645847442489354
-    )
-
-    # Channel ID where public reviews will be posted
-    public_review_channel_id: int | None = 1290082253765873746  # Set this to your review channel ID
-
-
 def generate_table(data: Mapping[str, Iterable[Any]] | Iterable[Iterable[Any]]) -> str:
     """Generate a rounded table with tabulate."""
     return tabulate(data, tablefmt="rounded_outline")
